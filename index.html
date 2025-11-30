@@ -2,378 +2,158 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Lord of Mysteries | Anime Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yue Chan | Donghua Lover</title>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, Segoe UI, sans-serif;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     body {
-      background: radial-gradient(circle at top, #0f172a 0%, #020617 60%);
-      color: #e5e7eb;
       min-height: 100vh;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(2, 6, 23, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-      z-index: 50;
-    }
-
-    .nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0.8rem 1rem;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      font-size: 1.05rem;
-    }
-
-    .logo span {
-      color: #facc15;
-      text-shadow: 0 0 10px rgba(250, 204, 21, 0.7);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      font-size: 0.85rem;
-    }
-
-    .nav-links a:hover {
-      color: #facc15;
-    }
-
-    .hero {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 1rem;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 0.2rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(250, 204, 21, 0.7);
-      font-size: 0.7rem;
-      color: #fde68a;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.1rem, 4vw, 2.9rem);
-      font-weight: 900;
-      margin-bottom: 0.7rem;
-      line-height: 1.12;
-    }
-
-    .hero-title span {
-      color: #facc15;
-    }
-
-    .hero-desc {
-      font-size: 0.95rem;
-      color: #9ca3af;
-      max-width: 35rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .btn-primary {
-      padding: 0.6rem 1.4rem;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(to right, #facc15, #f97316);
-      color: #020617;
-      font-weight: 700;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-
-    .btn-secondary {
-      padding: 0.6rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: transparent;
-      color: #e5e7eb;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-
-    .hero-note {
-      font-size: 0.75rem;
-      color: #6b7280;
-    }
-
-    /* Poster Card */
-    .poster-card {
-      border-radius: 1.4rem;
-      padding: 1.2rem;
-      background: radial-gradient(circle at top, rgba(250, 204, 21, 0.18), transparent 65%),
-                  rgba(2, 6, 23, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: 0 25px 40px rgba(2, 6, 23, 0.95);
-    }
-
-    .poster-thumb {
-      border-radius: 1rem;
-      overflow: hidden;
-      aspect-ratio: 3 / 4;
-      background: linear-gradient(135deg, #020617, #111827 40%, #1f2937 100%);
-      display: flex;
-      align-items: center;
       justify-content: center;
-      color: #9ca3af;
-      font-size: 0.75rem;
-      margin-bottom: 0.8rem;
+      align-items: center;
+      background: radial-gradient(circle at top, #2949ff, #020824 60%);
     }
 
-    .poster-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.78rem;
-      color: #9ca3af;
-      margin-bottom: 0.4rem;
-    }
-
-    .rating {
-      color: #facc15;
-      font-weight: 700;
-    }
-
-    /* Sections */
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
-
-    .section-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-    }
-
-    .section-title span {
-      color: #facc15;
-    }
-
-    .text-muted {
-      font-size: 0.85rem;
-      color: #9ca3af;
-      max-width: 45rem;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.2rem;
-    }
-
-    .info-card {
-      border-radius: 1rem;
-      padding: 0.8rem;
-      background: rgba(2, 6, 23, 0.95);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      font-size: 0.8rem;
-    }
-
-    .info-label {
-      color: #9ca3af;
-      font-size: 0.7rem;
-      margin-bottom: 0.2rem;
-    }
-
-    /* Episode List */
-    .episode-list {
-      margin-top: 1.2rem;
-      border-radius: 1rem;
-      background: rgba(2, 6, 23, 0.95);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      overflow: hidden;
-      font-size: 0.8rem;
-    }
-
-    .episode-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.6rem 0.9rem;
-      border-bottom: 1px dashed rgba(55, 65, 81, 0.7);
-    }
-
-    .episode-row:last-child {
-      border-bottom: none;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid rgba(55, 65, 81, 0.9);
-      padding: 1rem;
+    .card {
+      background: rgba(5, 20, 60, 0.92);
+      border-radius: 28px;
+      padding: 32px 40px;
+      max-width: 420px;
       text-align: center;
-      font-size: 0.75rem;
-      color: #6b7280;
-      margin-top: 2rem;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(124, 255, 139, 0.35);
+      position: relative;
+      overflow: hidden;
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .info-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -80px;
+      background: radial-gradient(circle at top left, rgba(124, 255, 139, 0.18), transparent 60%);
+      mix-blend-mode: screen;
+      pointer-events: none;
     }
 
-    @media (max-width: 480px) {
-      .info-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .pfp {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      border: 3px solid rgba(124, 255, 139, 0.8);
+      overflow: hidden;
+    }
+
+    .pfp img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .name {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #7cff8b;    /* green font */
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: #bdfec7;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 18px;
+    }
+
+    .text-main {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #7cff8b;
+      margin-bottom: 22px;
+    }
+
+    .highlight {
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .btn-follow {
+      display: inline-block;
+      padding: 12px 26px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 999px;
+      border: 2px solid #7cff8b;
+      color: #020824;
+      background: #7cff8b;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-follow:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(124, 255, 139, 0.45);
+      background: transparent;
+      color: #7cff8b;
+    }
+
+    .link {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      word-break: break-all;
+      color: #bdfec7;
+    }
+
+    .link a {
+      color: #7cff8b;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <header>
-    <div class="nav">
-      <div class="logo">LORD <span>OF MYSTERIES</span></div>
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#episodes">Episodes</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main id="home" class="hero">
-    <div>
-      <span class="tag">Mystery • Supernatural • Dark Fantasy</span>
-      <h1 class="hero-title">
-        Lord of <span>Mysteries</span>
-      </h1>
-      <p class="hero-desc">
-        A dark steampunk fantasy where secrets, gods, and madness
-        hide behind reality. Follow Klein Moretti as he walks the thin
-        line between humanity and the unknown.
-      </p>
-
-      <div class="hero-actions">
-        <button class="btn-primary">▶ Watch Trailer</button>
-        <button class="btn-secondary">＋ Add to Watchlist</button>
-      </div>
-
-      <p class="hero-note">
-        This is a fan-made demo website for “Lord of Mysteries”.
-      </p>
+  <div class="card">
+    <!-- Replace "pfp.jpg" with your profile picture file/link -->
+    <div class="pfp">
+      <img src="pfp.jpg" alt="Yue Chan Profile Picture" />
     </div>
 
-    <!-- Poster Card -->
-    <aside class="poster-card">
-      <div class="poster-thumb">
-        Lord of Mysteries Poster Here
-      </div>
-      <div class="poster-meta">
-        <span>Status: Upcoming</span>
-        <span class="rating">★ 9.8</span>
-      </div>
-      <div style="font-size:0.78rem;color:#9ca3af;">
-        Replace this box with real anime poster image later.
-      </div>
-    </aside>
-  </main>
+    <div class="name">Yue Chan</div>
+    <div class="tagline">Donghua Lover</div>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <h2 class="section-title">About <span>Anime</span></h2>
-    <p class="text-muted">
-      Lord of Mysteries is originally a Chinese web novel written by Cuttlefish
-      That Loves Diving. It combines Victorian-era steampunk,
-      mystery, horror, and supernatural powers into a deep, complex world.
-      The anime adaptation is highly anticipated worldwide.
+    <p class="text-main">
+      Please <span class="highlight">follow my girlfriend’s Facebook ID</span>  
+      and support her Donghua page! 💙
     </p>
 
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-label">Genre</div>
-        Dark Fantasy, Mystery, Horror
-      </div>
-      <div class="info-card">
-        <div class="info-label">Original Author</div>
-        Cuttlefish That Loves Diving
-      </div>
-      <div class="info-card">
-        <div class="info-label">Studio</div>
-        TBA
-      </div>
-      <div class="info-card">
-        <div class="info-label">Release</div>
-        Upcoming
-      </div>
+    <a
+      class="btn-follow"
+      href="https://www.facebook.com/Yue.chan.21545"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Follow on Facebook
+    </a>
+
+    <div class="link">
+      or visit:<br />
+      <a href="https://www.facebook.com/Yue.chan.21545" target="_blank" rel="noopener noreferrer">
+        facebook.com/Yue.chan.21545
+      </a>
     </div>
-  </section>
-
-  <!-- Episodes -->
-  <section id="episodes" class="section">
-    <h2 class="section-title">Episode <span>List</span></h2>
-    <p class="text-muted">
-      Sample layout. Real episode data release হলে এখানে update করবে।
-    </p>
-
-    <div class="episode-list">
-      <div class="episode-row">
-        <span>Episode 1</span>
-        <span>The Fool Awakens</span>
-      </div>
-      <div class="episode-row">
-        <span>Episode 2</span>
-        <span>Secret of the Tarot Club</span>
-      </div>
-      <div class="episode-row">
-        <span>Episode 3</span>
-        <span>Beyonder’s Path</span>
-      </div>
-      <div class="episode-row">
-        <span>Episode 4</span>
-        <span>Whispers in the Fog</span>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © <span id="year"></span> Lord of Mysteries Fan Site • Built with HTML & CSS
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
+  </div>
 </body>
 </html>
